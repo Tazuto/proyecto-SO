@@ -1,5 +1,4 @@
-# 🐚 Minishell - Sistema Operativo Avanzado
-
+# 🐚 Minishell 
 **Una implementación de shell Unix/Linux en C++**
 
 ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)
@@ -68,4 +67,55 @@ proyecto-SO/
 ├── Makefile         # Sistema de build
 └── README.md        # Documentación
 ```
+
+### 🔄 Flujo de Ejecución
+
+```mermaid
+graph TD
+    A[Inicio Shell] --> B[Mostrar Prompt]
+    B --> C[Leer Comando]
+    C --> D{Comando Vacío?}
+    D -->|Sí| B
+    D -->|No| E{Es 'salir'?}
+    E -->|Sí| F[Terminar]
+    E -->|No| G[Parser::parse]
+    G --> H{Es Builtin?}
+    H -->|Sí| I[Builtins::execute]
+    H -->|No| J[Executor::execute]
+    I --> B
+    J --> B
+```
+
+### 🧩 Componentes Principales
+
+#### 🔧 Shell 
+```cpp
+class Shell {
+    void run();                    // Loop principal
+    void handleCommand();          // Procesar comando
+    void showPrompt();            // Mostrar prompt
+};
+```
+
+#### 📝 Parser
+```cpp
+struct Command {
+    vector<string> argv;          // Argumentos
+    bool background;              // Proceso en background
+    string outputFile;            // Redirección salida
+    string inputFile;             // Redirección entrada
+};
+```
+
+#### ⚡ Executor
+```cpp
+class Executor {
+    static void execute(Command&); // Ejecutar comando externo
+private:
+    static void setupRedirection(); // Configurar I/O
+    static void handleBackground(); // Manejar procesos background
+};
+```
+
+---
 
