@@ -4,18 +4,21 @@
 #include <string>
 #include <vector>
 
+using namespace std;
+
 //  Manipulación de texto 
-std::vector<std::string> split(const std::string &s, char delimiter); 
-std::string trim(const std::string &s);                                
-std::string to_lower(const std::string &s);                            
+vector<string> split(const string &s, char delimiter); 
+string trim(const string &s);                                
+string to_lower(const string &s);
+string expand_home(const string &path);
 
 //  Manejo de errores 
-void print_error(const std::string &msg);                              
+void print_error(const string &msg);                              
 
 // Historial de comandos (~/.minishell_history) 
-std::string history_file_path();                                       
-void history_append(const std::string &line);                          
-std::vector<std::string> history_read_all();                           
+string history_file_path();                                       
+void history_append(const string &line);                          
+vector<string> history_read_all();                        
 
 // Información de memoria (para builtin meminfo)
 struct MemInfo {
