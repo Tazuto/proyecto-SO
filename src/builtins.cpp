@@ -37,7 +37,7 @@ int Builtins::execute(const Command &cmd) {
     else if (name == "alias")    return cmd_alias(cmd);
     else if (name == "parallel") return cmd_parallel(cmd);
     else if (name == "meminfo")  return cmd_meminfo(cmd);
-    else if (name == "exit")     return cmd_exit(cmd);
+    else if (name == "exit"or"salir")     return cmd_exit(cmd);
     else if (name == "echo")     return cmd_echo(cmd);
     return 1;
 }
@@ -74,7 +74,7 @@ int Builtins::cmd_help(const Command &) {
       "  alias name=cmd - Definir alias\n"
       "  parallel cmds  - Ejecutar builtins en paralelo\n"
       "  meminfo        - Mostrar uso de memoria\n"
-      "  exit           - Salir de la shell\n"
+      "  salir          - Salir de la shell\n"
       "  echo ...       - Imprimir texto\n";
     return 0;
 }
