@@ -37,7 +37,7 @@ int Builtins::execute(const Command &cmd) {
     else if (name == "alias")    return cmd_alias(cmd);
     else if (name == "parallel") return cmd_parallel(cmd);
     else if (name == "meminfo")  return cmd_meminfo(cmd);
-    else if (name == "exit"or"salir")     return cmd_exit(cmd);
+    else if (name == "salir")     return cmd_exit(cmd);
     else if (name == "echo")     return cmd_echo(cmd);
     return 1;
 }
