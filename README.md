@@ -73,13 +73,13 @@ proyecto-SO/
 ```mermaid
 graph TD
     A[Inicio Shell] --> B[Mostrar Prompt]
-    B --> C[Leer Comando]
-    C --> D{Comando Vacío?}
+    B --> C[Leer línea]
+    C --> D{Vacía?}
     D -->|Sí| B
     D -->|No| E{Es 'salir'?}
     E -->|Sí| F[Terminar]
     E -->|No| G[Parser::parse]
-    G --> H{Es Builtin?}
+    G --> H{Builtin?}
     H -->|Sí| I[Builtins::execute]
     H -->|No| J[Executor::execute]
     I --> B
@@ -118,4 +118,14 @@ private:
 ```
 
 ---
+## Limitaciones conocidas
+- Sin tuberías (|), redirecciones múltiples, ni encadenamiento con `;` salvo dentro de `parallel`
+- Sin comillas ni escape de espacios
+- Sin variables de entorno/expansión
+- Sin control de jobs (fg/bg), solo background básico con PID visible
+- ## Desarrollo
+- Formato: C++11, estructura simple por módulos
+- Tareas futuras sugeridas: soportar pipes, comillas y expansión; añadir tests; mejorar manejo de señales
+
+
 
