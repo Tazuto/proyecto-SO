@@ -6,11 +6,13 @@
 #include <unordered_map>
 #include "parser.hpp"
 
+using namespace std;
+
 // Clase que agrupa los comandos internos (builtins) de la minishell.
 class Builtins {
 public:
     
-    static bool isBuiltin(const std::string &cmd);
+    static bool isBuiltin(const string &cmd);
 
     static int execute(const Command &cmd);
 
@@ -26,8 +28,8 @@ private:
     static int cmd_exit(const Command &cmd);
     static int cmd_echo(const Command &cmd);
 
-    
-    static std::unordered_map<std::string, std::string> &alias_map();
+    static unordered_map<string, string> &alias_map();
 };
 
-#endif 
+#endif
+
