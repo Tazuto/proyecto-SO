@@ -133,8 +133,8 @@ int Builtins::cmd_parallel(const Command &cmd) {
 int Builtins::cmd_meminfo(const Command &) {
     MemInfo m = get_meminfo();
     cout << "MemInfo (aprox):\n"
-         << "  total_allocated: " << m.total_allocated << " bytes\n"
-         << "  total_free:      " << m.total_free << " bytes\n";
+         << "  total_asignado: " << m.total_allocated << " bytes\n"
+         << "  total_libre:      " << m.total_free << " bytes\n";
     return 0;
 }
 
